@@ -14,9 +14,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectoapp.R
 import com.example.proyectoapp.compose.BodyLogin
+import com.example.proyectoapp.viewModel.ILoginViewModel
 
 @Composable
-fun LoginScreen(navController: NavController){
+fun LoginScreen(navController: NavController, viewModel: ILoginViewModel){
     Box(contentAlignment = Alignment.Center) {
         Image(
             painter = painterResource(R.drawable.fondologin),
@@ -27,7 +28,7 @@ fun LoginScreen(navController: NavController){
                 .imePadding()
         )
 
-        BodyLogin(navController)
+        BodyLogin(navController, viewModel)
 
     }
 }

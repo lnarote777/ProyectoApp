@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
 
                     var showLoadingScreen by rememberSaveable { mutableStateOf(true) }
 
-                    // Cambiar el estado después de 3 segundos
+                    // Cambia el estado después de 3 segundos
                     LaunchedEffect(Unit) {
                         kotlinx.coroutines.delay(3000)
                         showLoadingScreen = false
