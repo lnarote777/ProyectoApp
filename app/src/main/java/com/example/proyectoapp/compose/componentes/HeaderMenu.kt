@@ -3,12 +3,16 @@ package com.example.proyectoapp.compose.componentes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsEndWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
@@ -33,6 +37,7 @@ fun HeaderMenu(navController: NavController, user: String?){
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
+            .padding(top = 30.dp)
             .background(color = colorResource(R.color.portada))
     ){
 
@@ -40,24 +45,36 @@ fun HeaderMenu(navController: NavController, user: String?){
             contentDescription = "Atrás",
             tint = Color.White,
             modifier = Modifier
-                .size(50.dp)
+                .size(25.dp)
                 .clickable { navController.navigate(route = AppScreen.LoginScreen.route) }
         )
 
         Spacer(Modifier.width(10.dp))
 
         Text(
-            "Vamos a estudiar",
-            fontSize = 30.sp,
+            "Bienvenido/a",
+            fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White
 
         )
-
-        Row {
+        Spacer(Modifier.weight(1f))
+        Column(verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .padding(horizontal = 20.dp)
+                .clickable {}
+        ) {
             Icon(imageVector = Icons.Default.AccountCircle,
-                contentDescription = "Usuario")
-            user ?.let { Text(user) }
+                contentDescription = "Usuario",
+                tint = Color.White,
+                modifier = Modifier.size(30.dp)
+
+            )
+            user ?.let { Text(
+                user,
+                color = Color.White
+            ) }
         }
     }
 }

@@ -39,7 +39,7 @@ fun Email(email: String, valueEmail: (String) -> Unit){
             unfocusedBorderColor = Color.LightGray,
             cursorColor = Color.Blue
         ),
-        label = { Text("Email") }
+        label = { Text("Usuario") }
     )
 }
 

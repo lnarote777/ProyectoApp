@@ -46,8 +46,8 @@ class LoginViewModel: ILoginViewModel {
     }
 
     override fun comprobarPass() {
-        if (_password.value.isNullOrBlank() || _password.value!!.length < MINCHAR || _password.value != "12345678") {
-            mensajeInfo("Contraseña inválida. (minimo 8 caracteres)")
+        if (_password.value.isNullOrBlank() || _password.value != "usuario") {
+            mensajeInfo("Contraseña inválida.")
         }else{
             _isValidPass.value = true
             mostrarInfo(false)
@@ -57,7 +57,7 @@ class LoginViewModel: ILoginViewModel {
 
     override fun comprobarEmailOUser() {
         if (_emailOUsername.value.isNullOrBlank()  || _emailOUsername.value != "usuario"){
-            mensajeInfo("Usuario o email inválido")
+            mensajeInfo("Usuario inválido")
         }else{
             isValidUser.value = true
             mostrarInfo(false)

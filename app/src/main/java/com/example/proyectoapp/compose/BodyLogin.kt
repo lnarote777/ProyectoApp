@@ -1,6 +1,7 @@
 package com.example.proyectoapp.compose
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -107,6 +108,7 @@ fun BodyLogin(navController: NavController, viewModel: ILoginViewModel){
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(10.dp)
+                        .clickable {}
                 )
             }
 
@@ -117,7 +119,7 @@ fun BodyLogin(navController: NavController, viewModel: ILoginViewModel){
             Boton(text = "Iniciar sesión",
                 modifier = Modifier,
                 color = ButtonColors(
-                    containerColor = Color.Blue,
+                    containerColor = colorResource(R.color.boton),
                     contentColor = Color.White,
                     disabledContainerColor = Color.Yellow,
                     disabledContentColor = Color.Black
