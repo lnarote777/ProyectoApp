@@ -65,7 +65,9 @@ fun PortadaScreen(navController: NavController){
                 )
             ) { Text("¡Empezar a estudiar!") }
         }
-
-
     }
 }
+
+
+
+

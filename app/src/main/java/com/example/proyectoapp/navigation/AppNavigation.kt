@@ -9,6 +9,7 @@ import androidx.navigation.navArgument
 import com.example.proyectoapp.screens.LoginScreen
 import com.example.proyectoapp.screens.MenuScreen
 import com.example.proyectoapp.screens.PortadaScreen
+import com.example.proyectoapp.screens.UserScreen
 import com.example.proyectoapp.viewModel.LoginViewModel
 
 @Composable
@@ -32,5 +33,15 @@ fun AppNavigation(){
         ){
             MenuScreen(navController, it.arguments?.getString("user"))
         }
+
+        composable(
+            AppScreen.UserScreen.route+ "/{user}",
+            arguments = listOf(navArgument(name = "user"){
+                type = NavType.StringType
+            })
+        ){
+            UserScreen(navController, it.arguments?.getString("user"))
+        }
+
     }
 }

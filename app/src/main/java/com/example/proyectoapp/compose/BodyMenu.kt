@@ -1,5 +1,6 @@
 package com.example.proyectoapp.compose
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.proyectoapp.R
@@ -20,7 +22,9 @@ import com.example.proyectoapp.compose.componentes.Bubble
 @Composable
 fun BodyMenu(){
     Column(
-        modifier = Modifier.fillMaxWidth().padding(top = 30.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 30.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
         Row {

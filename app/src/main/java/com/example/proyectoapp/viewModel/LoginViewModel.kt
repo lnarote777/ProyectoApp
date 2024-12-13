@@ -4,10 +4,6 @@ import androidx.lifecycle.MutableLiveData
 
 class LoginViewModel: ILoginViewModel {
 
-    companion object{
-        val MINCHAR = 8
-    }
-
     private var _emailOUsername = MutableLiveData<String>()
     override val emailOUsername: MutableLiveData<String> = _emailOUsername
 
@@ -32,7 +28,6 @@ class LoginViewModel: ILoginViewModel {
     private var _show = MutableLiveData<Boolean>()
     override val show: MutableLiveData<Boolean> = _show
 
-
     override fun onCheckedChange(check: Boolean) {
         _isCheacked.value = check
     }
@@ -53,7 +48,6 @@ class LoginViewModel: ILoginViewModel {
             mostrarInfo(false)
         }
     }
-
 
     override fun comprobarEmailOUser() {
         if (_emailOUsername.value.isNullOrBlank()  || _emailOUsername.value != "usuario"){
@@ -76,6 +70,7 @@ class LoginViewModel: ILoginViewModel {
     override fun onVisibleChange(visible: Boolean) {
         _passVisible.value = visible
     }
-
-
 }
+
+
+

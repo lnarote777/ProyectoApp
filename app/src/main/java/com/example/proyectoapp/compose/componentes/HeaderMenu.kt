@@ -40,7 +40,6 @@ fun HeaderMenu(navController: NavController, user: String?){
             .padding(top = 30.dp)
             .background(color = colorResource(R.color.portada))
     ){
-
         Icon(imageVector = Icons.Default.ArrowBack,
             contentDescription = "Atrás",
             tint = Color.White,
@@ -48,9 +47,7 @@ fun HeaderMenu(navController: NavController, user: String?){
                 .size(25.dp)
                 .clickable { navController.navigate(route = AppScreen.LoginScreen.route) }
         )
-
         Spacer(Modifier.width(10.dp))
-
         Text(
             "Bienvenido/a",
             fontSize = 20.sp,
@@ -63,7 +60,7 @@ fun HeaderMenu(navController: NavController, user: String?){
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .padding(horizontal = 20.dp)
-                .clickable {}
+                .clickable {navController.navigate(route = AppScreen.UserScreen.route + "/$user")}
         ) {
             Icon(imageVector = Icons.Default.AccountCircle,
                 contentDescription = "Usuario",

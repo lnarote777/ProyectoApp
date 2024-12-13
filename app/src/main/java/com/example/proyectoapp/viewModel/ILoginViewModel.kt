@@ -22,3 +22,8 @@ interface ILoginViewModel {
     fun mensajeInfo(mensaje: String)
     fun onVisibleChange(visible: Boolean)
 }
+
+
+
+
+

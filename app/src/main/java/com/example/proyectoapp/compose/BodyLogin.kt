@@ -15,33 +15,28 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AccountCircle
+import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.lifecycle.asFlow
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.asFlow
 import androidx.navigation.NavController
 import com.example.proyectoapp.R
-import com.example.proyectoapp.compose.componentes.Boton
 import com.example.proyectoapp.compose.componentes.Check
 import com.example.proyectoapp.compose.componentes.Contrasena
 import com.example.proyectoapp.compose.componentes.Email
 import com.example.proyectoapp.compose.componentes.Mensaje
 import com.example.proyectoapp.navigation.AppScreen
-import com.example.proyectoapp.screens.LoginScreen
 import com.example.proyectoapp.viewModel.ILoginViewModel
 
 
@@ -55,7 +50,6 @@ fun BodyLogin(navController: NavController, viewModel: ILoginViewModel){
     val isValidUser by viewModel.isValidUser.asFlow().collectAsState(false)
     val isValidPass by viewModel.isValidPass.asFlow().collectAsState(false)
     val show by viewModel.show.asFlow().collectAsState(false)
-
 
     Mensaje(show, { viewModel.mostrarInfo(!show) }, infoMessage)
 
@@ -112,26 +106,26 @@ fun BodyLogin(navController: NavController, viewModel: ILoginViewModel){
                 )
             }
 
-
-
             Spacer(Modifier.height(40.dp))
 
-            Boton(text = "Iniciar sesión",
+            Button(
                 modifier = Modifier,
-                color = ButtonColors(
+                colors = ButtonColors(
                     containerColor = colorResource(R.color.boton),
                     contentColor = Color.White,
                     disabledContainerColor = Color.Yellow,
                     disabledContentColor = Color.Black
                 ),
-                onclick = {
+                onClick = {
                     viewModel.comprobarEmailOUser()
                     viewModel.comprobarPass()
                     if (isValidUser && isValidPass) {
                         navController.navigate(route = AppScreen.MenuScreen.route + "/$emailOUser")
                     }
                 }
-            )
+            ){
+                Text("Iniciar sesión")
+            }
         }
 
     }
